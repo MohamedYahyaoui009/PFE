@@ -17,31 +17,7 @@ public class Enseignant extends Personne
 
     private Administrateur adminen;
 
-    public Enseignant(String nom, String prenom, Date datenaissance, String email, String cin, String login, String password, Long id, int tel) {
-        super(nom, prenom, datenaissance, email, cin, login, password, id,tel);
-    }
-
-    public Enseignant(String nom, String prenom, Date datenaissance, String email, String cin, String login, String password, Long id, String grade, String departement, int tel) {
-        super(nom, prenom, datenaissance, email, cin, login, password, id,tel);
-        this.grade = grade;
-        this.departement = departement;
-    }
-
-    public Enseignant(String nom, String prenom, Date datenaissance, String email, String cin, String login, String password, Long id, int tel, String grade, String departement, ArrayList<Module> modulesenseigner, ArrayList<Filiere> filieresenseigner) {
-        super(nom, prenom, datenaissance, email, cin, login, password, id, tel);
-        this.grade = grade;
-        this.departement = departement;
-        this.modulesenseigner = modulesenseigner;
-        this.filieresenseigner = filieresenseigner;
-    }
-
-    public Enseignant(String nom, String prenom, Date datenaissance, String email, String cin, String login, String password, Long id, int tel, String grade, String departement, ArrayList<Module> modulesenseigner, ArrayList<Filiere> filieresenseigner, Administrateur adminen) {
-        super(nom, prenom, datenaissance, email, cin, login, password, id, tel);
-        this.grade = grade;
-        this.departement = departement;
-        this.modulesenseigner = modulesenseigner;
-        this.filieresenseigner = filieresenseigner;
-        this.adminen = adminen;
+    public Enseignant() {
     }
 
     public String getGrade() {

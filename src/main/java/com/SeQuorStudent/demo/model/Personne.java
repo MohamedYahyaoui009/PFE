@@ -1,31 +1,31 @@
 package com.SeQuorStudent.demo.model;
 
 import com.SeQuorStudent.demo.model.Date;
+import org.springframework.format.annotation.DateTimeFormat;
 
-public class Personne
-{
+import javax.persistence.*;
+import java.io.Serializable;
+
+@Entity
+@DiscriminatorValue("personne")
+@Table(name = "personne")
+public class Personne implements Serializable {
+
+
+    private static final long serialVersionUID = 1L;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id ;
     private String nom ;
     private String prenom ;
-    private Date datenaissance ;
     private String email ;
     private String cin ;
     private String login ;
     private String password ;
-    private long id ;
+
     private int tel;
 
-    public Personne(String nom, String prenom, Date datenaissance, String email, String cin, String login, String password, long id, int tel)
-    {
-        this.nom=nom;
-        this.prenom=prenom;
-        this.datenaissance=datenaissance;
-        this.email=email;
-        this.cin=cin;
-        this.login=login;
-        this.password=password;
-        this.id=id;
-        this.tel=tel;
-    }
 
     public String getNom() {
         return nom;
@@ -41,14 +41,6 @@ public class Personne
 
     public void setPrenom(String prenom) {
         this.prenom = prenom;
-    }
-
-    public Date getDatenaissance() {
-        return datenaissance;
-    }
-
-    public void setDatenaissance(Date datenaissance) {
-        this.datenaissance = datenaissance;
     }
 
     public String getEmail() {
@@ -104,7 +96,6 @@ public class Personne
         return
                 "nom='" + nom + '\'' +
                 ", prenom='" + prenom + '\'' +
-                ", datenaissance=" + datenaissance +
                 ", email='" + email + '\'' +
                 ", cin='" + cin + '\'' +
                 ", login='" + login + '\'' +

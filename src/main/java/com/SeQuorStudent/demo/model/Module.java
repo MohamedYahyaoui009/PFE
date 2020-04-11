@@ -4,17 +4,22 @@ import com.SeQuorStudent.demo.model.Enseignant;
 import com.SeQuorStudent.demo.model.Etudiant;
 import com.SeQuorStudent.demo.model.Filiere;
 
+import javax.persistence.*;
 import java.util.ArrayList;
 
-public class Module
-{
+
+public class Module {
+
     private String id;
     private String nom;
     private int semestre;
 
+
     private ArrayList<Filiere> filieremodule;
 
+
     ArrayList<Etudiant> etudiantsmodule;
+
 
     ArrayList<Enseignant> enseignantsmodule;
 
