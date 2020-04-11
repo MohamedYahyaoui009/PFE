@@ -12,7 +12,7 @@ public class Module
     private String nom;
     private int semestre;
 
-    Filiere filieremodule;
+    private ArrayList<Filiere> filieremodule;
 
     ArrayList<Etudiant> etudiantsmodule;
 
@@ -31,15 +31,7 @@ public class Module
         this.enseignantsmodule = enseignantsmodule;
     }
 
-    public Module(String id, String nom, int semestre, Filiere filieremodule, ArrayList<Enseignant> enseignantsmodule) {
-        this.id = id;
-        this.nom = nom;
-        this.semestre = semestre;
-        this.filieremodule = filieremodule;
-        this.enseignantsmodule = enseignantsmodule;
-    }
-
-    public Module(String id, String nom, int semestre, Filiere filieremodule, ArrayList<Etudiant> etudiantsmodule, ArrayList<Enseignant> enseignantsmodule) {
+    public Module(String id, String nom, int semestre, ArrayList<Filiere> filieremodule, ArrayList<Etudiant> etudiantsmodule, ArrayList<Enseignant> enseignantsmodule) {
         this.id = id;
         this.nom = nom;
         this.semestre = semestre;
@@ -72,13 +64,6 @@ public class Module
         this.semestre = semestre;
     }
 
-    public Filiere getFilieremodule() {
-        return filieremodule;
-    }
-
-    public void setFilieremodule(Filiere filieremodule) {
-        this.filieremodule = filieremodule;
-    }
 
     public ArrayList<Etudiant> getEtudiantsmodule() {
         return etudiantsmodule;
@@ -96,6 +81,14 @@ public class Module
         this.enseignantsmodule = enseignantsmodule;
     }
 
+    public ArrayList<Filiere> getFilieremodule() {
+        return filieremodule;
+    }
+
+    public void setFilieremodule(ArrayList<Filiere> filieremodule) {
+        this.filieremodule = filieremodule;
+    }
+
     @Override
     public String toString() {
         return "Module{" +
@@ -103,6 +96,7 @@ public class Module
                 ", nom='" + nom + '\'' +
                 ", semestre=" + semestre +
                 ", filieremodule=" + filieremodule +
+                ", etudiantsmodule=" + etudiantsmodule +
                 ", enseignantsmodule=" + enseignantsmodule +
                 '}';
     }
