@@ -19,33 +19,7 @@ public class Etudiant extends  Personne
     private Administrateur admin;
 
 
-    public Etudiant(String nom, String prenom, Date datenaissance, String email, String cin, String login, String password, String id, int tel)
-    {
-        super(nom, prenom, datenaissance, email, cin, login, password, id,tel);
-    }
-
-    public Etudiant(String nom, String prenom, Date datenaissance, String email, String cin, String login, String password, String id, int tel, String section, String semsetre) {
-        super(nom, prenom, datenaissance, email, cin, login, password, id, tel);
-        this.section = section;
-        this.semsetre = semsetre;
-    }
-
-    public Etudiant(String nom, String prenom, Date datenaissance, String email, String cin, String login, String password, String id, int tel, String section, String semsetre, Filiere filiere) {
-        super(nom, prenom, datenaissance, email, cin, login, password, id, tel);
-        this.section = section;
-        this.semsetre = semsetre;
-        this.filiere = filiere;
-    }
-
-    public Etudiant(String nom, String prenom, Date datenaissance, String email, String cin, String login, String password, String id, int tel, String section, String semsetre, Filiere filiere, ArrayList<Module> modules) {
-        super(nom, prenom, datenaissance, email, cin, login, password, id, tel);
-        this.section = section;
-        this.semsetre = semsetre;
-        this.filiere = filiere;
-        this.modules = modules;
-    }
-
-    public Etudiant(String nom, String prenom, Date datenaissance, String email, String cin, String login, String password, String id, int tel, String section, String semsetre, Filiere filiere, ArrayList<Module> modules, Administrateur admin) {
+    public Etudiant(String nom, String prenom, Date datenaissance, String email, String cin, String login, String password, long id, int tel, String section, String semsetre, Filiere filiere, ArrayList<Module> modules, Administrateur admin) {
         super(nom, prenom, datenaissance, email, cin, login, password, id, tel);
         this.section = section;
         this.semsetre = semsetre;
