@@ -11,10 +11,10 @@ public class Personne
     private String cin ;
     private String login ;
     private String password ;
-    private String id ;
+    private long id ;
     private int tel;
 
-    public Personne(String nom, String prenom, Date datenaissance, String email, String cin, String login, String password, String id, int tel)
+    public Personne(String nom, String prenom, Date datenaissance, String email, String cin, String login, String password, long id, int tel)
     {
         this.nom=nom;
         this.prenom=prenom;
@@ -83,11 +83,11 @@ public class Personne
         this.password = password;
     }
 
-    public String getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(long id) {
         this.id = id;
     }
 
