@@ -5,8 +5,13 @@ import com.SeQuorStudent.demo.model.Module;
 import com.SeQuorStudent.demo.model.Personne;
 import com.SeQuorStudent.demo.model.*;
 
+import javax.persistence.*;
 import java.util.ArrayList;
 
+
+@Entity
+@DiscriminatorValue("enseignant")
+@Table(name = "enseignant")
 public class Enseignant extends Personne
 {
     private String grade;

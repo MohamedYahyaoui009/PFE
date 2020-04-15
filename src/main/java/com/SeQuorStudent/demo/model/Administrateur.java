@@ -7,6 +7,12 @@ import com.SeQuorStudent.demo.model.Personne;
 
 import java.util.ArrayList;
 
+import javax.persistence.*;
+
+
+@Entity
+@DiscriminatorValue("administrateur")
+@Table(name = "administrateur")
 public class Administrateur extends Personne
 {
     private ArrayList<Enseignant> enseignantsajouter ;

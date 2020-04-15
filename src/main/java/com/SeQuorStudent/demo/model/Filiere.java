@@ -4,11 +4,17 @@ import com.SeQuorStudent.demo.model.Enseignant;
 import com.SeQuorStudent.demo.model.Etudiant;
 import com.SeQuorStudent.demo.model.Module;
 
+import javax.persistence.*;
 import java.util.ArrayList;
 
+@Entity
+@DiscriminatorValue("filiere")
+@Table(name = "filiere")
 public class Filiere
 {
-    private String id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
     private String nom;
     private String chefFiliere;
     private String departement;
@@ -17,14 +23,7 @@ public class Filiere
     ArrayList<Etudiant> etudiantsfiliere;
     ArrayList<Enseignant> enseignantsfiliere;
 
-    public Filiere(String id, String nom, String chefFiliere, String departement) {
-        this.id = id;
-        this.nom = nom;
-        this.chefFiliere = chefFiliere;
-        this.departement = departement;
-    }
-
-    public Filiere(String id, String nom, String chefFiliere, String departement, ArrayList<Module> modulesfiliere, ArrayList<Etudiant> etudiantsfiliere, ArrayList<Enseignant> enseignantsfiliere) {
+    public Filiere(long id, String nom, String chefFiliere, String departement, ArrayList<Module> modulesfiliere, ArrayList<Etudiant> etudiantsfiliere, ArrayList<Enseignant> enseignantsfiliere) {
         this.id = id;
         this.nom = nom;
         this.chefFiliere = chefFiliere;
@@ -34,11 +33,11 @@ public class Filiere
         this.enseignantsfiliere = enseignantsfiliere;
     }
 
-    public String getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(long id) {
         this.id = id;
     }
 
