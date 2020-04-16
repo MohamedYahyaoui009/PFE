@@ -6,21 +6,31 @@ import com.SeQuorStudent.demo.model.Personne;
 import com.SeQuorStudent.demo.model.*;
 
 import javax.persistence.*;
-import java.util.ArrayList;
+
+import java.io.Serializable;
+import java.util.Set;
 
 
 @Entity
 @DiscriminatorValue("etudiant")
 @Table(name = "etudiant")
-public class Etudiant extends  Personne
+public class Etudiant extends  Personne implements Serializable
 {
+
+    private static final long serialVersionUID = 1L;
+
+
     private String section;
     private String semsetre;
 
+    @ManyToOne
     private Filiere filiere;
 
-    private ArrayList<Module> modules;
+    @ManyToMany(mappedBy = "etudiantsmodule")
+    private Set<Module> modules;
 
+
+    @ManyToOne
     private Administrateur admin;
 
 
@@ -51,11 +61,11 @@ public class Etudiant extends  Personne
         this.filiere = filiere;
     }
 
-    public ArrayList<Module> getModules() {
+    public Set<Module> getModules() {
         return modules;
     }
 
-    public void setModules(ArrayList<Module> modules) {
+    public void setModules(Set<Module> modules) {
         this.modules = modules;
     }
 

@@ -5,25 +5,33 @@ import com.SeQuorStudent.demo.model.Etudiant;
 import com.SeQuorStudent.demo.model.Module;
 
 import javax.persistence.*;
-import java.util.ArrayList;
+
+import java.io.Serializable;
+import java.util.Set;
 
 @Entity
 @DiscriminatorValue("filiere")
 @Table(name = "filiere")
-public class Filiere
+public class Filiere implements Serializable
 {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_filiere")
     private long id;
     private String nom;
     private String chefFiliere;
     private String departement;
 
-    ArrayList<Module> modulesfiliere;
-    ArrayList<Etudiant> etudiantsfiliere;
-    ArrayList<Enseignant> enseignantsfiliere;
+    @ManyToMany(mappedBy = "filieremodule")
+    Set<Module> modulesfiliere;
 
-    public Filiere(long id, String nom, String chefFiliere, String departement, ArrayList<Module> modulesfiliere, ArrayList<Etudiant> etudiantsfiliere, ArrayList<Enseignant> enseignantsfiliere) {
+    @OneToMany(mappedBy ="filiere")
+    Set<Etudiant> etudiantsfiliere;
+
+    @ManyToMany
+    Set<Enseignant> enseignantsfiliere;
+
+    public Filiere(long id, String nom, String chefFiliere, String departement, Set<Module> modulesfiliere, Set<Etudiant> etudiantsfiliere, Set<Enseignant> enseignantsfiliere) {
         this.id = id;
         this.nom = nom;
         this.chefFiliere = chefFiliere;
@@ -65,27 +73,27 @@ public class Filiere
         this.departement = departement;
     }
 
-    public ArrayList<Module> getModulesfiliere() {
+    public Set<Module> getModulesfiliere() {
         return modulesfiliere;
     }
 
-    public void setModulesfiliere(ArrayList<Module> modulesfiliere) {
+    public void setModulesfiliere(Set<Module> modulesfiliere) {
         this.modulesfiliere = modulesfiliere;
     }
 
-    public ArrayList<Etudiant> getEtudiantsfiliere() {
+    public Set<Etudiant> getEtudiantsfiliere() {
         return etudiantsfiliere;
     }
 
-    public void setEtudiantsfiliere(ArrayList<Etudiant> etudiantsfiliere) {
+    public void setEtudiantsfiliere(Set<Etudiant> etudiantsfiliere) {
         this.etudiantsfiliere = etudiantsfiliere;
     }
 
-    public ArrayList<Enseignant> getEnseignantsfiliere() {
+    public Set<Enseignant> getEnseignantsfiliere() {
         return enseignantsfiliere;
     }
 
-    public void setEnseignantsfiliere(ArrayList<Enseignant> enseignantsfiliere) {
+    public void setEnseignantsfiliere(Set<Enseignant> enseignantsfiliere) {
         this.enseignantsfiliere = enseignantsfiliere;
     }
 

@@ -6,21 +6,32 @@ import com.SeQuorStudent.demo.model.Personne;
 import com.SeQuorStudent.demo.model.*;
 
 import javax.persistence.*;
-import java.util.ArrayList;
+
+import java.io.Serializable;
+import java.util.Set;
 
 
 @Entity
 @DiscriminatorValue("enseignant")
 @Table(name = "enseignant")
-public class Enseignant extends Personne
+public class Enseignant extends Personne implements Serializable
 {
+
+    private static final long serialVersionUID = 1L;
+
+
+
     private String grade;
     private String departement;
 
-    private ArrayList<Module> modulesenseigner ;
-    private ArrayList<Filiere> filieresenseigner;
+    @ManyToMany(mappedBy = "enseignantsmodule")
+    private Set<Module> modulesenseigner ;
 
-    private Administrateur adminen;
+    @ManyToMany(mappedBy = "enseignantsfiliere")
+    private Set<Filiere> filieresenseigner;
+
+    @ManyToOne
+    private Administrateur admin;
 
     public Enseignant() {
     }
@@ -41,28 +52,28 @@ public class Enseignant extends Personne
         this.departement = departement;
     }
 
-    public ArrayList<Module> getModulesenseigner() {
+    public Set<Module> getModulesenseigner() {
         return modulesenseigner;
     }
 
-    public void setModulesenseigner(ArrayList<Module> modulesenseigner) {
+    public void setModulesenseigner(Set<Module> modulesenseigner) {
         this.modulesenseigner = modulesenseigner;
     }
 
-    public ArrayList<Filiere> getFilieresenseigner() {
+    public Set<Filiere> getFilieresenseigner() {
         return filieresenseigner;
     }
 
-    public void setFilieresenseigner(ArrayList<Filiere> filieresenseigner) {
+    public void setFilieresenseigner(Set<Filiere> filieresenseigner) {
         this.filieresenseigner = filieresenseigner;
     }
 
-    public Administrateur getAdminen() {
-        return adminen;
+    public Administrateur getAdmin() {
+        return admin;
     }
 
-    public void setAdminen(Administrateur adminen) {
-        this.adminen = adminen;
+    public void setAdmin(Administrateur admin) {
+        this.admin = admin;
     }
 
     @Override

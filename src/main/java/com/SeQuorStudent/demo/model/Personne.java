@@ -1,12 +1,11 @@
 package com.SeQuorStudent.demo.model;
 
-import com.SeQuorStudent.demo.model.Date;
-import org.springframework.format.annotation.DateTimeFormat;
-
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.*;
 
 @Entity
+@Inheritance(strategy =InheritanceType.JOINED)
 @DiscriminatorValue("personne")
 @Table(name = "personne")
 public class Personne implements Serializable {
@@ -23,6 +22,9 @@ public class Personne implements Serializable {
     private String cin ;
     private String login ;
     private String password ;
+
+    @Temporal(TemporalType.DATE)
+    private Date datenaissance ;
 
     private int tel;
 

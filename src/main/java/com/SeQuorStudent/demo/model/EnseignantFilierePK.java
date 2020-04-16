@@ -1,11 +1,15 @@
 package com.SeQuorStudent.demo.model;
 
-public class EnseignantFilierePK
-{
+import javax.persistence.*;
+import java.io.Serializable;
 
+@Embeddable
+public class EnseignantFilierePK implements Serializable
+{
+    @Column(insertable=false, updatable=false)
     private long id_enseignant;
 
-
+    @Column(insertable=false, updatable=false)
     private long id_filiere;
 
 

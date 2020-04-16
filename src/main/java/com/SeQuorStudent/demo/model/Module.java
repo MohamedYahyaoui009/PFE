@@ -5,29 +5,33 @@ import com.SeQuorStudent.demo.model.Etudiant;
 import com.SeQuorStudent.demo.model.Filiere;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Set;
 
 @Entity
 @DiscriminatorValue("module")
 @Table(name = "module")
-public class Module {
+public class Module implements Serializable
+{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_module")
     private long id;
     private String nom;
     private int semestre;
 
+    @ManyToMany
+    private Set<Filiere> filieremodule;
 
-    private ArrayList<Filiere> filieremodule;
+    @ManyToMany
+    private Set<Etudiant> etudiantsmodule;
 
+    @ManyToMany
+    private Set<Enseignant> enseignantsmodule;
 
-    ArrayList<Etudiant> etudiantsmodule;
-
-
-    ArrayList<Enseignant> enseignantsmodule;
-
-    public Module(long id, String nom, int semestre, ArrayList<Filiere> filieremodule, ArrayList<Etudiant> etudiantsmodule, ArrayList<Enseignant> enseignantsmodule) {
+    public Module(long id, String nom, int semestre, Set<Filiere> filieremodule, Set<Etudiant> etudiantsmodule, Set<Enseignant>  enseignantsmodule) {
         this.id = id;
         this.nom = nom;
         this.semestre = semestre;
@@ -61,27 +65,27 @@ public class Module {
     }
 
 
-    public ArrayList<Etudiant> getEtudiantsmodule() {
+    public Set<Etudiant> getEtudiantsmodule() {
         return etudiantsmodule;
     }
 
-    public void setEtudiantsmodule(ArrayList<Etudiant> etudiantsmodule) {
+    public void setEtudiantsmodule(Set<Etudiant> etudiantsmodule) {
         this.etudiantsmodule = etudiantsmodule;
     }
 
-    public ArrayList<Enseignant> getEnseignantsmodule() {
+    public Set<Enseignant> getEnseignantsmodule() {
         return enseignantsmodule;
     }
 
-    public void setEnseignantsmodule(ArrayList<Enseignant> enseignantsmodule) {
+    public void setEnseignantsmodule(Set<Enseignant> enseignantsmodule) {
         this.enseignantsmodule = enseignantsmodule;
     }
 
-    public ArrayList<Filiere> getFilieremodule() {
+    public Set<Filiere> getFilieremodule() {
         return filieremodule;
     }
 
-    public void setFilieremodule(ArrayList<Filiere> filieremodule) {
+    public void setFilieremodule(Set<Filiere> filieremodule) {
         this.filieremodule = filieremodule;
     }
 

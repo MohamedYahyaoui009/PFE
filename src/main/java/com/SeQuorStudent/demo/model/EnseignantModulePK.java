@@ -1,10 +1,16 @@
 package com.SeQuorStudent.demo.model;
 
-public class EnseignantModulePK
+import javax.persistence.*;
+import java.io.Serializable;
+
+@Embeddable
+public class EnseignantModulePK implements Serializable
 {
+
+    @Column(insertable=false, updatable=false)
     private long id_enseignant;
 
-
+    @Column(insertable=false, updatable=false)
     private long id_module;
 
 
