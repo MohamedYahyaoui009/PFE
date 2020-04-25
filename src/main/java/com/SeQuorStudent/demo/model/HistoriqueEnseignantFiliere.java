@@ -7,7 +7,7 @@ import java.util.*;
 @Entity
 @DiscriminatorValue("historiqueenseignantfiliere")
 @Table(name = "historiqueenseignantfiliere")
-public class HistoriqueEnseignantFiliere {
+public class HistoriqueEnseignantFiliere {             
 
     @EmbeddedId
     private EnseignantFilierePK ID;
