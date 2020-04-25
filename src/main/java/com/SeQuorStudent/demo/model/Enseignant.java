@@ -24,11 +24,11 @@ public class Enseignant extends Personne implements Serializable
     private String grade;
     private String departement;
 
-    @ManyToMany(mappedBy = "enseignantsmodule")
-    private Set<Module> modulesenseigner ;
+    @ManyToMany(mappedBy = "enseignants")
+    private Set<Module> modules ;
 
-    @ManyToMany(mappedBy = "enseignantsfiliere")
-    private Set<Filiere> filieresenseigner;
+    @ManyToMany(mappedBy = "enseignants")
+    private Set<Filiere> filieres;
 
     @ManyToOne
     private Administrateur admin;
@@ -53,19 +53,19 @@ public class Enseignant extends Personne implements Serializable
     }
 
     public Set<Module> getModulesenseigner() {
-        return modulesenseigner;
+        return modules;
     }
 
     public void setModulesenseigner(Set<Module> modulesenseigner) {
-        this.modulesenseigner = modulesenseigner;
+        this.modules = modulesenseigner;
     }
 
     public Set<Filiere> getFilieresenseigner() {
-        return filieresenseigner;
+        return filieres;
     }
 
     public void setFilieresenseigner(Set<Filiere> filieresenseigner) {
-        this.filieresenseigner = filieresenseigner;
+        this.filieres = filieresenseigner;
     }
 
     public Administrateur getAdmin() {
@@ -81,8 +81,8 @@ public class Enseignant extends Personne implements Serializable
         return "Enseignant{" + super.toString()+
                 "grade='" + grade + '\'' +
                 ", departement='" + departement + '\'' +
-                ", modulesenseigner=" + modulesenseigner.toString() +
-                ", filieresenseigner=" + filieresenseigner.toString() +
+                ", modulesenseigner=" + modules.toString() +
+                ", filieresenseigner=" + filieres.toString() +
                 '}';
     }
 }

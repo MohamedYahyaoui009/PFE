@@ -22,23 +22,23 @@ public class Filiere implements Serializable
     private String chefFiliere;
     private String departement;
 
-    @ManyToMany(mappedBy = "filieremodule")
-    Set<Module> modulesfiliere;
+    @ManyToMany(mappedBy = "filieres")
+    Set<Module> modules;
 
     @OneToMany(mappedBy ="filiere")
-    Set<Etudiant> etudiantsfiliere;
+    Set<Etudiant> etudiants;
 
     @ManyToMany
-    Set<Enseignant> enseignantsfiliere;
+    Set<Enseignant> enseignants;
 
-    public Filiere(long id, String nom, String chefFiliere, String departement, Set<Module> modulesfiliere, Set<Etudiant> etudiantsfiliere, Set<Enseignant> enseignantsfiliere) {
+    public Filiere(long id, String nom, String chefFiliere, String departement, Set<Module> modules, Set<Etudiant> etudiant, Set<Enseignant> enseignants) {
         this.id = id;
         this.nom = nom;
         this.chefFiliere = chefFiliere;
         this.departement = departement;
-        this.modulesfiliere = modulesfiliere;
-        this.etudiantsfiliere = etudiantsfiliere;
-        this.enseignantsfiliere = enseignantsfiliere;
+        this.modules = modules;
+        this.etudiants = etudiants;
+        this.enseignants = enseignants;
     }
 
     public long getId() {
@@ -74,27 +74,27 @@ public class Filiere implements Serializable
     }
 
     public Set<Module> getModulesfiliere() {
-        return modulesfiliere;
+        return modules;
     }
 
-    public void setModulesfiliere(Set<Module> modulesfiliere) {
-        this.modulesfiliere = modulesfiliere;
+    public void setModulesfiliere(Set<Module> modules) {
+        this.modules = modules;
     }
 
     public Set<Etudiant> getEtudiantsfiliere() {
-        return etudiantsfiliere;
+        return etudiants;
     }
 
-    public void setEtudiantsfiliere(Set<Etudiant> etudiantsfiliere) {
-        this.etudiantsfiliere = etudiantsfiliere;
+    public void setEtudiantsfiliere(Set<Etudiant> etudiants) {
+        this.etudiants = etudiants;
     }
 
     public Set<Enseignant> getEnseignantsfiliere() {
-        return enseignantsfiliere;
+        return enseignants;
     }
 
-    public void setEnseignantsfiliere(Set<Enseignant> enseignantsfiliere) {
-        this.enseignantsfiliere = enseignantsfiliere;
+    public void setEnseignantsfiliere(Set<Enseignant> enseignants) {
+        this.enseignants = enseignants;
     }
 
     @Override

@@ -26,7 +26,7 @@ public class Etudiant extends  Personne implements Serializable
     @ManyToOne
     private Filiere filiere;
 
-    @ManyToMany(mappedBy = "etudiantsmodule")
+    @ManyToMany(mappedBy = "etudiants")
     private Set<Module> modules;
 
 

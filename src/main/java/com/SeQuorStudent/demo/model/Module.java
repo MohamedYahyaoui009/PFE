@@ -23,21 +23,21 @@ public class Module implements Serializable
     private int semestre;
 
     @ManyToMany
-    private Set<Filiere> filieremodule;
+    private Set<Filiere> filieres;
 
     @ManyToMany
-    private Set<Etudiant> etudiantsmodule;
+    private Set<Etudiant> etudiants;
 
     @ManyToMany
-    private Set<Enseignant> enseignantsmodule;
+    private Set<Enseignant> enseignants;
 
-    public Module(long id, String nom, int semestre, Set<Filiere> filieremodule, Set<Etudiant> etudiantsmodule, Set<Enseignant>  enseignantsmodule) {
+    public Module(long id, String nom, int semestre, Set<Filiere> filieres, Set<Etudiant> etudiants, Set<Enseignant>  enseignants) {
         this.id = id;
         this.nom = nom;
         this.semestre = semestre;
-        this.filieremodule = filieremodule;
-        this.etudiantsmodule = etudiantsmodule;
-        this.enseignantsmodule = enseignantsmodule;
+        this.filieres = filieres;
+        this.etudiants = etudiants;
+        this.enseignants = enseignants;
     }
 
     public long getId() {
@@ -66,27 +66,27 @@ public class Module implements Serializable
 
 
     public Set<Etudiant> getEtudiantsmodule() {
-        return etudiantsmodule;
+        return etudiants;
     }
 
-    public void setEtudiantsmodule(Set<Etudiant> etudiantsmodule) {
-        this.etudiantsmodule = etudiantsmodule;
+    public void setEtudiantsmodule(Set<Etudiant> etudiants) {
+        this.etudiants = etudiants;
     }
 
     public Set<Enseignant> getEnseignantsmodule() {
-        return enseignantsmodule;
+        return enseignants;
     }
 
-    public void setEnseignantsmodule(Set<Enseignant> enseignantsmodule) {
-        this.enseignantsmodule = enseignantsmodule;
+    public void setEnseignantsmodule(Set<Enseignant> enseignants) {
+        this.enseignants = enseignants;
     }
 
     public Set<Filiere> getFilieremodule() {
-        return filieremodule;
+        return filieres;
     }
 
     public void setFilieremodule(Set<Filiere> filieremodule) {
-        this.filieremodule = filieremodule;
+        this.filieres = filieremodule;
     }
 
     @Override
@@ -95,9 +95,9 @@ public class Module implements Serializable
                 "id='" + id + '\'' +
                 ", nom='" + nom + '\'' +
                 ", semestre=" + semestre +
-                ", filieremodule=" + filieremodule +
-                ", etudiantsmodule=" + etudiantsmodule +
-                ", enseignantsmodule=" + enseignantsmodule +
+                ", filieremodule=" + filieres +
+                ", etudiantsmodule=" + etudiants +
+                ", enseignantsmodule=" + enseignants +
                 '}';
     }
 }
