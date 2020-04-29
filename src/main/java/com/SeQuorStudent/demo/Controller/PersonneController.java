@@ -11,7 +11,7 @@ import java.util.Optional;
 @RestController
 @CrossOrigin(origins = "*" , maxAge=3600) // pas important
 @RequestMapping("/personnes")
-public class PersonneController
+public class PersonneController      
 {
     @Autowired
     PersonneRepository personnesRepository;
