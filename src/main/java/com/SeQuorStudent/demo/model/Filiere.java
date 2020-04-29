@@ -31,6 +31,9 @@ public class Filiere implements Serializable
     @ManyToMany
     Set<Enseignant> enseignants;
 
+    public Filiere() {
+    }
+
     public Filiere(long id, String nom, String chefFiliere, String departement, Set<Module> modules, Set<Etudiant> etudiant, Set<Enseignant> enseignants) {
         this.id = id;
         this.nom = nom;
@@ -81,9 +84,7 @@ public class Filiere implements Serializable
         this.modules = modules;
     }
 
-    public Set<Etudiant> getEtudiantsfiliere() {
-        return etudiants;
-    }
+    //public Set<Etudiant> getEtudiantsfiliere() {  return etudiants; }
 
     public void setEtudiantsfiliere(Set<Etudiant> etudiants) {
         this.etudiants = etudiants;

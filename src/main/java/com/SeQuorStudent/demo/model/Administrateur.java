@@ -28,17 +28,13 @@ public class Administrateur extends Personne implements Serializable
     public Administrateur() {
     }
 
-    public Set<Enseignant> getEnseignantsajouter() {
-        return enseignantsajouter;
-    }
+     //public Set<Enseignant> getEnseignantsajouter() {return enseignantsajouter;}
 
     public void setEnseignantsajouter(Set<Enseignant> enseignantsajouter) {
         this.enseignantsajouter = enseignantsajouter;
     }
 
-    public Set<Etudiant> getEtudiantssuivi() {
-        return etudiantssuivi;
-    }
+    //public Set<Etudiant> getEtudiantssuivi() { return etudiantssuivi; }
 
     public void setEtudiantssuivi(Set<Etudiant> etudiantssuivi) {
         this.etudiantssuivi = etudiantssuivi;

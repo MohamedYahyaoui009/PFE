@@ -23,11 +23,29 @@ public class Personne implements Serializable {
     private String login ;
     private String password ;
 
+    @Enumerated(EnumType.STRING)
+    private TypePersonne Role;
+
     @Temporal(TemporalType.DATE)
     private Date datenaissance ;
 
     private int tel;
 
+    public Personne() {
+    }
+
+    public Personne(long id, String nom, String prenom, String email, String cin, String login, String password, TypePersonne role, Date datenaissance, int tel) {
+        this.id = id;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.email = email;
+        this.cin = cin;
+        this.login = login;
+        this.password = password;
+        Role = role;
+        this.datenaissance = datenaissance;
+        this.tel = tel;
+    }
 
     public String getNom() {
         return nom;
@@ -93,16 +111,35 @@ public class Personne implements Serializable {
         this.tel = tel;
     }
 
+    public TypePersonne getRole() {
+        return Role;
+    }
+
+    public void setRole(TypePersonne role) {
+        Role = role;
+    }
+
+    public Date getDatenaissance() {
+        return datenaissance;
+    }
+
+    public void setDatenaissance(Date datenaissance) {
+        this.datenaissance = datenaissance;
+    }
+
+
     @Override
     public String toString() {
-        return
-                "nom='" + nom + '\'' +
+        return "Personne{" +
+                "id=" + id +
+                ", nom='" + nom + '\'' +
                 ", prenom='" + prenom + '\'' +
                 ", email='" + email + '\'' +
                 ", cin='" + cin + '\'' +
                 ", login='" + login + '\'' +
                 ", password='" + password + '\'' +
-                ", id='" + id + '\'' +
+                ", Role=" + Role +
+                ", datenaissance=" + datenaissance +
                 ", tel=" + tel +
                 '}';
     }

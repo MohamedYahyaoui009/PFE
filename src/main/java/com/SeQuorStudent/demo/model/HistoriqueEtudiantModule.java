@@ -12,11 +12,12 @@ public class HistoriqueEtudiantModule
     private EtudiantModulePK ID ;
 
     @Temporal(TemporalType.DATE)
-    private Date date_debut;
+    private Date datedebut;
 
     @Temporal(TemporalType.DATE)
-    private Date date_fin;
+    private Date datefin;
 
+    private float note;
 
     public HistoriqueEtudiantModule() {
     }
@@ -29,28 +30,38 @@ public class HistoriqueEtudiantModule
         this.ID = ID;
     }
 
-    public Date getDate_debut() {
-        return date_debut;
+    public Date getDatedebut() {
+        return datedebut;
     }
 
-    public void setDate_debut(Date date_debut) {
-        this.date_debut = date_debut;
+    public void setDatedebut(Date date_debut) {
+        this.datedebut = date_debut;
     }
 
     public Date getDate_fin() {
-        return date_fin;
+        return datefin;
     }
 
-    public void setDate_fin(Date date_fin) {
-        this.date_fin = date_fin;
+    public void setDatefin(Date date_fin) {
+        this.datefin = date_fin;
+    }
+
+    public float getNote() {
+        return note;
+    }
+
+    public void setNote(float note) {
+        this.note = note;
     }
 
     @Override
     public String toString() {
-        return "EtudiantModule{" +
+        return "HistoriqueEtudiantModule{" +
                 "ID=" + ID +
-                ", date_debut=" + date_debut +
-                ", date_fin=" + date_fin +
+                ", datedebut=" + datedebut +
+                ", datefin=" + datefin +
+                ", note=" + note +
                 '}';
     }
 }
+

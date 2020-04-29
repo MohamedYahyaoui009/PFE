@@ -31,6 +31,9 @@ public class Module implements Serializable
     @ManyToMany
     private Set<Enseignant> enseignants;
 
+    public Module() {
+    }
+
     public Module(long id, String nom, int semestre, Set<Filiere> filieres, Set<Etudiant> etudiants, Set<Enseignant>  enseignants) {
         this.id = id;
         this.nom = nom;

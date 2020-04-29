@@ -21,7 +21,7 @@ public class Etudiant extends  Personne implements Serializable
 
 
     private String section;
-    private String semsetre;
+    private String semestre;
 
     @ManyToOne
     private Filiere filiere;
@@ -45,12 +45,12 @@ public class Etudiant extends  Personne implements Serializable
         this.section = section;
     }
 
-    public String getSemsetre() {
-        return semsetre;
+    public String getSemestre() {
+        return semestre;
     }
 
-    public void setSemsetre(String semsetre) {
-        this.semsetre = semsetre;
+    public void setSemestre(String semestre) {
+        this.semestre = semestre;
     }
 
     public Filiere getFiliere() {
@@ -79,11 +79,12 @@ public class Etudiant extends  Personne implements Serializable
 
     @Override
     public String toString() {
-        return "Etudiant{" + super.toString()+
+        return "Etudiant{" +
                 "section='" + section + '\'' +
-                ", semsetre='" + semsetre + '\'' +
+                ", semestre='" + semestre + '\'' +
                 ", filiere=" + filiere +
-                ", modules=" + modules.toString() +
+                ", modules=" + modules +
+                ", admin=" + admin +
                 '}';
     }
 }
